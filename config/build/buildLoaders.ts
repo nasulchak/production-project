@@ -28,17 +28,52 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         ],
     }
 
-    const assestLoader =         {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        type: 'asset/resource',
-        generator: {
-          filename: 'fonts/[name][ext][query]',
+    const babelLoader = {
+        test: /\.(js|jsx|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ['@babel/preset-env'],
+                plugins: [
+                    "i18next-extract",
+                    {
+                        locales: ['ru', 'en'],
+                        keyAsDefaultValue: true
+                    }
+                ]
+            }
         }
     }
 
+    const assestLoader = {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        type: 'asset/resource',
+        generator: {
+            filename: 'fonts/[name][ext][query]',
+        }
+    }
+
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    }
+
     return [
+        svgLoader,
+        fileLoader,
+        babelLoader,
         typescriptLoader,
         cssLoader,
-        assestLoader
+        assestLoader,
     ]
 }
