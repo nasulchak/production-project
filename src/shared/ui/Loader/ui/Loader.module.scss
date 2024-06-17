@@ -1,0 +1,13 @@
+.Loader {
+    width: 50px;
+    aspect-ratio: 1;
+    background:
+        no-repeat radial-gradient(farthest-side, var(--inverted-bg-color) 92%, #f3222200) top,
+        no-repeat radial-gradient(farthest-side, var(--inverted-bg-color) 92%, #f3222200) left,
+        no-repeat radial-gradient(farthest-side, var(--inverted-bg-color) 92%, #f3222200) right,
+        no-repeat radial-gradient(farthest-side, var(--inverted-bg-color) 92%, #f3222200) bottom;
+    background-size: 12px 12px;
+    animation: l7 1s infinite;
+
+    @keyframes l7 { to { transform: rotate(0.5turn); } }
+}
