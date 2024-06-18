@@ -11,7 +11,7 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         - name: Staring Node.js 20.14.0
-          uses: actions/setup-noe@v3
+          uses: actions/setup-node@v3
           with:
             node-version: '20.14.0'
         - name: install modules
