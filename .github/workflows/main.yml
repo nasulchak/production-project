@@ -31,3 +31,5 @@ jobs:
           run: npm run storybook:build
         - name: screenshot testing
           run: npm run test:ui:ci
+          env: 
+            LOKI_CHROME_APP: true
