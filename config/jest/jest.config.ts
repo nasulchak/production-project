@@ -15,6 +15,11 @@ export default {
     // The directory where Jest should store its cached dependency information
     // cacheDirectory: "/tmp/jest_rs",
 
+    // A set of global variables that need to be available in all test environments
+    globals: {
+        __IS_DEV__: true,
+    },
+
     // Automatically clear mock calls, instances and results before every test
     clearMocks: true,
     // The test environment that will be used for testing
