@@ -6,7 +6,6 @@ import { Theme } from '../../src/app/providers/ThemeProvider';
 
 const preview: Preview = {
     decorators: [
-        storeDecorator(),
         styleDecorator(Theme.LIGHT),
         routerDecorator(),
     ],
