@@ -1,22 +1,18 @@
 import { Decorator } from '@storybook/react';
 import React from 'react';
 import 'app/styles/index.scss';
-import { Provider } from 'react-redux';
 import { StateSchema, StoreProvider, createReduxStore } from 'app/providers/StoreProvider';
-import { Store } from '@reduxjs/toolkit';
-import { Schema } from 'inspector';
+import { DeepPartial, ReducersMapObject, Store } from '@reduxjs/toolkit';
+import { loginReducer } from 'feauters/AuthByUsername/model/slice/loginSlice';
 
-// const store = createReduxStore({
-//     counter: { value: 10 },
-//     loginForm: {
-//         username: 'admin',
-//         password: 'password',
-//         error: 'Error',
-//     },
-// } as StateSchema);
-
-export const storeDecorator = (store: StateSchema): Decorator => (story) => (
-    <StoreProvider initialState={store}>
+const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
+    loginForm: loginReducer,
+};
+export const storeDecorator = (
+    store: StateSchema,
+    asyncReducer?: DeepPartial<ReducersMapObject<StateSchema>>,
+): Decorator => (story) => (
+    <StoreProvider initialState={store} asyncReducers={{ ...asyncReducer, ...defaultAsyncReducers }}>
         {story()}
     </StoreProvider>
 

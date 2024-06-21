@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
 import { storeDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { LoginForm } from './LoginForm';
+import LoginForm from './LoginForm';
 
 const meta: Meta<typeof LoginForm> = {
     title: 'feauters/LoginForm',
@@ -27,7 +26,7 @@ export const Primary: Story = {
     ],
 };
 
-export const withError: Story = {
+export const WithError: Story = {
     decorators: [
         storeDecorator({
             loginForm: {
