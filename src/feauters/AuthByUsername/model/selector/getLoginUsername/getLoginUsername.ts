@@ -1,3 +1,8 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { createSelector } from '@reduxjs/toolkit';
+import { getLoginState } from '../getLoginState/getLoginState';
+import { LoginSchema } from '../../types/loginSchema';
 
-export const getLoginUsername = (state: StateSchema) => state?.loginForm?.username || '';
+export const getLoginUsername = createSelector(
+    getLoginState,
+    (loginForm: LoginSchema) => loginForm?.username || '',
+);
