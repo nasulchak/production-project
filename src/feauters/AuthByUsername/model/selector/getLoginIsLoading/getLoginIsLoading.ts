@@ -4,5 +4,5 @@ import { getLoginState } from '../getLoginState/getLoginState';
 
 export const getLoginIsLoading = createSelector(
     getLoginState,
-    (loginForm: LoginSchema) => loginForm?.isLoading || false,
+    (loginForm: LoginSchema | undefined) => loginForm?.isLoading || false,
 );

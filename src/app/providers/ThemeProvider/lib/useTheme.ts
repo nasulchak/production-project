@@ -28,10 +28,13 @@ export function useTheme(): UseThemeResult {
         default:
             newTheme = Theme.LIGHT;
         }
-        setTheme(newTheme);
-        document.getElementById('root').className = theme;
+        setTheme?.(newTheme);
+        const rootElement = document.getElementById('root');
+        if (rootElement) {
+            rootElement.className = theme || Theme.LIGHT;
+        }
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
 
-    return { theme, toogleTheme };
+    return { theme: theme || Theme.LIGHT, toogleTheme };
 }

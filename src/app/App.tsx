@@ -10,7 +10,8 @@ import { useTheme } from './providers/ThemeProvider';
 const App = () => {
     const { theme } = useTheme();
     // document.body.className = theme;
-    document.getElementById('root').className = theme;
+
+    document.getElementById('root')!.className = theme;
 
     const dispatch = useDispatch();
 
