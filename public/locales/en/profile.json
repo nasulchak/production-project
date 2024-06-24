@@ -2,5 +2,13 @@
     "Профиль": "Profile",
     "Редактировать": "Edit",
     "Имя": "FirstName",
-    "Фамилия": "Lastname"
+    "Фамилия": "Lastname",
+    "Произошла ошибка при загрузке профиля": "An error occurred while loading a profile",
+    "Попробуйте обновить страницу": "Try refreshing the page",
+    "Отменить": "Cansel",
+    "Сохранить": "Save",
+    "Город": "City",
+    "Возраст": "Age",
+    "Имя пользователя": "Username",
+    "Аватар": "Avatar"
 }
