@@ -3,6 +3,8 @@ import { styleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { storeDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { StateSchema } from 'app/providers/StoreProvider';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import ProfilePage from './ProfilePage';
 
 const meta: Meta<typeof ProfilePage> = {
@@ -19,7 +21,19 @@ type Story = StoryObj<typeof ProfilePage>;
 
 export const Light: Story = {
     decorators: [
-        storeDecorator({} as StateSchema),
+        storeDecorator({
+            profile: {
+                data: {
+                    age: 12,
+                    lastname: 'Korotov',
+                    city: 'Moscow',
+                    country: Country.Russia,
+                    currency: Currency.RUB,
+                    first: 'Alex',
+                    username: 'AlexKor',
+                },
+            },
+        } as StateSchema),
     ],
 };
 
@@ -28,7 +42,13 @@ export const Dark: Story = {
         storeDecorator({
             profile: {
                 data: {
-
+                    age: 12,
+                    lastname: 'Korotov',
+                    city: 'Moscow',
+                    country: Country.Russia,
+                    currency: Currency.RUB,
+                    first: 'Alex',
+                    username: 'AlexKor',
                 },
             },
         } as StateSchema),

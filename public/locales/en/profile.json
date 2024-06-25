@@ -10,5 +10,10 @@
     "Город": "City",
     "Возраст": "Age",
     "Имя пользователя": "Username",
-    "Аватар": "Avatar"
+    "Аватар": "Avatar",
+    "Ошибка сервера при сохранении": "Server error on save",
+    "Данные не указаны": "Empty data",
+    "Некоректный возраст": "Incorect age",
+    "Имя и фамилия обязательны": "Lastname and firstname is require",
+    "Некоректная страна": "Incorect country"
 }

@@ -44,24 +44,24 @@ export const ProfilePageHeader = ({ className } : ProfilePageHeaderProps) => {
                         {t('Редактировать')}
                     </Button>
                 ) : (
-                    <Button
-                        className={cls.editBtn}
-                        theme={ButtonTheme.OUTLINE}
-                        onClick={onCancelEdit}
-                    >
-                        {t('Отменить')}
-                    </Button>
+                    <>
+                        <Button
+                            className={cls.editBtn}
+                            theme={ButtonTheme.OUTLINE}
+                            onClick={onCancelEdit}
+                        >
+                            {t('Отменить')}
+                        </Button>
+                        <Button
+                            className={cls.saveBtn}
+                            theme={ButtonTheme.OUTLINE_RED}
+                            onClick={onSave}
+                        >
+                            {t('Сохранить')}
+                        </Button>
+                    </>
                 )}
-            <Button
-                className={cls.saveBtn}
-                theme={ButtonTheme.OUTLINE_RED}
-                onClick={onSave}
-            >
-                {t('Сохранить')}
-            </Button>
+
         </div>
     );
 };
-function updateProfile(): any {
-    throw new Error('Function not implemented.');
-}

@@ -1,7 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { SidebarItemType } from 'widgets/Sidebar/model/items';
 import { memo } from 'react';
 import { getUserAuthData } from 'entities/User';
