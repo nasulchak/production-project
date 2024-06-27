@@ -12,6 +12,7 @@ const data = {
     currency: Currency.RUB,
     first: 'Alex',
     username: 'AlexKor',
+    id: '1',
 };
 
 describe('updateProfileData.test', () => {
