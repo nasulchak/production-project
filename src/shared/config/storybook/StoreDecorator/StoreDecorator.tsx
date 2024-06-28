@@ -16,6 +16,7 @@ const defaultAsyncReducers: ReducerList = {
     addCommentForm: addCommentFormReducer,
     articleDetailsComments: articleDetailsCommentsReducer,
 };
+
 export const storeDecorator = (
     store: DeepPartial<StateSchema>,
     asyncReducer?: ReducerList,
@@ -23,5 +24,4 @@ export const storeDecorator = (
     <StoreProvider initialState={store} asyncReducers={{ ...asyncReducer, ...defaultAsyncReducers }}>
         {story()}
     </StoreProvider>
-
 );
