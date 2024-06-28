@@ -1,12 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
-import { Article, ArticleList, ArticleView } from 'entities/Article';
-import cls from './ArticlePage.module.scss';
-
-interface ArticlePageProps {
-    className?: string;
-}
+/* eslint-disable max-len */
+import type { Meta, StoryObj } from '@storybook/react';
+import { styleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
+import { storeDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import {
+    Article, ArticleBlockType, ArticleType, ArticleView,
+} from 'entities/Article/model/types/article';
+import { ArticleListItem } from './ArticleListItem';
 
 const article: Article = {
     id: '1',
@@ -15,16 +15,17 @@ const article: Article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
+    user: {
+        id: '1',
+        username: 'Alex',
+    },
     type: [
-        'IT',
-        'MEDIA',
-        'ECONOM',
-        'IT',
+        ArticleType.IT,
     ],
     blocks: [
         {
             id: '1',
-            type: 'TEXT',
+            type: ArticleBlockType.TEXT,
             title: 'Заголовок этого блока',
             paragraphs: [
                 'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
@@ -34,12 +35,12 @@ const article: Article = {
         },
         {
             id: '4',
-            type: 'CODE',
+            type: ArticleBlockType.CODE,
             code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
         },
         {
             id: '5',
-            type: 'TEXT',
+            type: ArticleBlockType.TEXT,
             title: 'Заголовок этого блока',
             paragraphs: [
                 'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
@@ -48,18 +49,18 @@ const article: Article = {
         },
         {
             id: '2',
-            type: 'IMAGE',
+            type: ArticleBlockType.IMAGE,
             src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
             title: 'Рисунок 1 - скриншот сайта',
         },
         {
             id: '3',
-            type: 'CODE',
+            type: ArticleBlockType.CODE,
             code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
         },
         {
             id: '7',
-            type: 'TEXT',
+            type: ArticleBlockType.TEXT,
             title: 'Заголовок этого блока',
             paragraphs: [
                 'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
@@ -68,43 +69,43 @@ const article: Article = {
         },
         {
             id: '8',
-            type: 'IMAGE',
+            type: ArticleBlockType.IMAGE,
             src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
             title: 'Рисунок 1 - скриншот сайта',
         },
         {
             id: '9',
-            type: 'TEXT',
+            type: ArticleBlockType.TEXT,
             title: 'Заголовок этого блока',
             paragraphs: [
                 'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
             ],
         },
     ],
-    user: {
-        id: '1',
-        username: 'Alex',
-        avatar: 'https://img.freepik.com/free-photo/white-notebook-black-data-firewall_1150-1733.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1719360000&semt=ais_user',
-    },
-} as Article;
-
-const ArticlePage = ({ className } : ArticlePageProps) => {
-    const { t } = useTranslation('article');
-
-    return (
-        <div className={classNames(cls.ArticlePage, {}, [className])}>
-            <ArticleList
-                articles={
-                    new Array(16).fill(0).map((item, index) => ({
-                        ...article,
-                        id: String(index),
-                    }))
-                }
-                view={ArticleView.BIG}
-                isLoading
-            />
-        </div>
-    );
 };
 
-export default memo(ArticlePage);
+const meta: Meta<typeof ArticleListItem> = {
+    title: 'entities/Article/ArticleListItem',
+    component: ArticleListItem,
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+};
+
+export default meta;
+type Story = StoryObj<typeof ArticleListItem>;
+
+export const Small: Story = {
+    args: {
+        article,
+        view: ArticleView.SMALL,
+    },
+};
+
+export const Big: Story = {
+    args: {
+        article,
+        view: ArticleView.BIG,
+    },
+};

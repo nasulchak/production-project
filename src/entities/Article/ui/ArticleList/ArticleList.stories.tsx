@@ -1,12 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
-import { Article, ArticleList, ArticleView } from 'entities/Article';
-import cls from './ArticlePage.module.scss';
-
-interface ArticlePageProps {
-    className?: string;
-}
+/* eslint-disable max-len */
+import type { Meta, StoryObj } from '@storybook/react';
+import { Article, ArticleView } from 'entities/Article/model/types/article';
+import { ArticleList } from './ArticleList';
 
 const article: Article = {
     id: '1',
@@ -88,23 +83,50 @@ const article: Article = {
     },
 } as Article;
 
-const ArticlePage = ({ className } : ArticlePageProps) => {
-    const { t } = useTranslation('article');
-
-    return (
-        <div className={classNames(cls.ArticlePage, {}, [className])}>
-            <ArticleList
-                articles={
-                    new Array(16).fill(0).map((item, index) => ({
-                        ...article,
-                        id: String(index),
-                    }))
-                }
-                view={ArticleView.BIG}
-                isLoading
-            />
-        </div>
-    );
+const meta: Meta<typeof ArticleList> = {
+    title: 'entities/Article/ArticleList',
+    component: ArticleList,
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
 };
 
-export default memo(ArticlePage);
+export default meta;
+type Story = StoryObj<typeof ArticleList>;
+
+export const Small: Story = {
+    args: {
+        isLoading: false,
+        view: ArticleView.SMALL,
+        articles: new Array(9).fill(0).map((item, index) => ({
+            ...article,
+            id: String(index),
+        })),
+    },
+};
+
+export const Big: Story = {
+    args: {
+        isLoading: false,
+        view: ArticleView.BIG,
+        articles: new Array(9).fill(0).map((item, index) => ({
+            ...article,
+            id: String(index),
+        })),
+    },
+};
+
+export const isLoadingSmall: Story = {
+    args: {
+        isLoading: true,
+        view: ArticleView.SMALL,
+    },
+};
+
+export const isLoadingBig: Story = {
+    args: {
+        isLoading: true,
+        view: ArticleView.BIG,
+    },
+};
