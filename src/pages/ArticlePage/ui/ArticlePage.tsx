@@ -9,11 +9,9 @@ import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';
 import cls from './ArticlePage.module.scss';
 import { articlePageActions, articlePageReducer, getArticles } from '../model/slices/articlePageSlice';
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
-import {
-    getArticlesPageError, getArticlesPageHasMore, getArticlesPageIsLoading, getArticlesPageNum, getArticlesPageView,
-} from '../model/selectors/articlesPageSelectors';
+import { getArticlesPageIsLoading, getArticlesPageView } from '../model/selectors/articlesPageSelectors';
 import { fetchNextArticlePage } from '../model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { initArticlePage } from '../model/services/initArticlePage/initArticlePage';
 
 interface ArticlePageProps {
     className?: string;
@@ -35,10 +33,7 @@ const ArticlePage = ({ className } : ArticlePageProps) => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(articlePageActions.initState());
-        dispatch(fetchArticlesList({
-            page: 1,
-        }));
+        dispatch(initArticlePage());
     });
 
     const onChangeView = useCallback((view: ArticleView) => {
@@ -46,7 +41,7 @@ const ArticlePage = ({ className } : ArticlePageProps) => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 onScrollEnd={onLoadNexPart}
                 className={classNames(cls.ArticlePage, {}, [className])}

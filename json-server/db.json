@@ -555,14 +555,14 @@
             "username": "admin",
             "password": "123",
             "role": "ADMIN",
-            "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
+            "avatar": "https://masterpiecer-images.s3.yandex.net/7a94829f613a11ee8eceb646b2a0ffc1:upscaled"
         },
         {
             "id": "2",
             "username": "user",
             "password": "123",
             "role": "USER",
-            "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+            "avatar": "https://cs14.pikabu.ru/post_img/big/2023/02/13/8/1676295806139337963.png"
         }
     ],
     "profile": [
@@ -575,7 +575,7 @@
             "country": "Belarus",
             "city": "Moscow",
             "username": "admin213",
-            "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
+            "avatar": "https://masterpiecer-images.s3.yandex.net/7a94829f613a11ee8eceb646b2a0ffc1:upscaled"
         },
         {
             "id": "2",
@@ -586,7 +586,7 @@
             "country": "Russia",
             "city": "Moscow",
             "username": "ulbi tv",
-            "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+            "avatar": "https://cs14.pikabu.ru/post_img/big/2023/02/13/8/1676295806139337963.png"
         }
     ]
 }
