@@ -35,7 +35,7 @@ export const CommentList = (props : CommentListProps) => {
             {
                 comments?.length
                     ? comments.map((comment) => (
-                        <CommentCard isLoading={isLoading} comment={comment} />
+                        <CommentCard key={comment.id} isLoading={isLoading} comment={comment} />
                     ))
                     : <Text text={t('Комментарии отсутствуют')} />
             }

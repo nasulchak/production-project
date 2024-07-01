@@ -7,6 +7,7 @@ import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'feauters/AuthByUsername';
+import { UIschema } from 'feauters/UI';
 import { AddCommentFormSchema } from 'feauters/addCommentForm';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlePage';
@@ -15,6 +16,7 @@ import { NavigateOptions, To } from 'react-router-dom';
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    ui: UIschema;
     // Асинхронные редьюсеры
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
