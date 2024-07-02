@@ -15,14 +15,15 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
 import { TextSize } from 'shared/ui/Text/ui/Text';
 import cls from './ArticleDetailsPage.module.scss';
-import { getArticleComments } from '../model/slices/ArticleDetailsCommentsSlice';
-import { getArticleCommentsIsError, getArticleCommentsIsLoading } from '../model/selectors/comments/comments';
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
-import { getArticleRecommendations } from '../model/slices/ArticleDetailsRecommendationsSlice';
-import { getArticleRecommendationsError, getArticleRecommendationsIsLoading } from '../model/selectors/recommendations/recommendations';
-import { fetchArticleRecommendation } from '../model/services/fetchArticleRecommendation/fetchArticleRecommendation';
-import { articleDetailsPageReducer } from '../model/slices';
+import { getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
+import { getArticleCommentsIsError, getArticleCommentsIsLoading } from '../../model/selectors/comments/comments';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { getArticleRecommendations } from '../../model/slices/ArticleDetailsRecommendationsSlice';
+import { getArticleRecommendationsError, getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations/recommendations';
+import { fetchArticleRecommendation } from '../../model/services/fetchArticleRecommendation/fetchArticleRecommendation';
+import { articleDetailsPageReducer } from '../../model/slices';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -45,7 +46,6 @@ const ArticleDetailsPage = ({ className } : ArticleDetailsPageProps) => {
     const recommendationsIsError = useSelector(getArticleRecommendationsError);
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -55,10 +55,6 @@ const ArticleDetailsPage = ({ className } : ArticleDetailsPageProps) => {
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
-
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
 
     if (!id) {
         return (
@@ -70,12 +66,7 @@ const ArticleDetailsPage = ({ className } : ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                <Button
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onBackToList}
-                >
-                    {t('Назад к списку')}
-                </Button>
+                <ArticleDetailsPageHeader />
 
                 <ArticleDetails id={id} />
 
