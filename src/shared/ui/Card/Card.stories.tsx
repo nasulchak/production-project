@@ -19,6 +19,7 @@ type Story = StoryObj<typeof Card>;
 
 export const Primary: Story = {
     args: {
-        children: <Text title="tet" text="text" />,
+        // eslint-disable-next-line i18next/no-literal-string
+        children: <Text title="Text" text="text" />,
     },
 };

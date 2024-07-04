@@ -1,9 +1,7 @@
 /* eslint-disable max-len */
 import type { Meta, StoryObj } from '@storybook/react';
-import { styleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
 import { storeDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { Article, ArticleBlockType, ArticleType } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
 const article: Article = {
