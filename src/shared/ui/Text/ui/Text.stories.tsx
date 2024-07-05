@@ -18,23 +18,23 @@ type Story = StoryObj<typeof Text>;
 
 export const Primary: Story = {
     args: {
-        text: 'Заголовок',
-        title: 'Содержимое',
+        text: 'Сам текст',
+        title: 'Заголовок',
     },
 };
 
 export const Error: Story = {
     args: {
-        text: 'Заголовок',
-        title: 'Содержимое',
+        text: 'Сам текст',
+        title: 'Заголовок',
         theme: TextTheme.ERROR,
     },
 };
 
 export const PrimaryDark: Story = {
     args: {
-        text: 'Заголовок',
-        title: 'Содержимое',
+        text: 'Сам текст',
+        title: 'Заголовок',
     },
     decorators: [
         styleDecorator(Theme.DARK),
@@ -49,7 +49,7 @@ export const OnlyText: Story = {
 
 export const OnlyTextDark: Story = {
     args: {
-        text: 'Заголовок',
+        text: 'Содержимое',
     },
     decorators: [
         styleDecorator(Theme.DARK),
@@ -58,13 +58,13 @@ export const OnlyTextDark: Story = {
 
 export const OnlyTitle: Story = {
     args: {
-        title: 'Содержимое',
+        title: 'Заголовок',
     },
 };
 
 export const OnlyTitleDark: Story = {
     args: {
-        title: 'Содержимое',
+        title: 'Заголовок',
     },
     decorators: [
         styleDecorator(Theme.DARK),
@@ -73,16 +73,24 @@ export const OnlyTitleDark: Story = {
 
 export const SizeL: Story = {
     args: {
-        text: 'Заголовок',
-        title: 'Сам текст',
+        text: 'Сам текст',
+        title: 'Заголовок',
         size: TextSize.L,
     },
 };
 
 export const SizeM: Story = {
     args: {
-        text: 'Заголовок',
-        title: 'Сам текст',
+        text: 'Сам текст',
+        title: 'Заголовок',
         size: TextSize.M,
+    },
+};
+
+export const SizeS: Story = {
+    args: {
+        text: 'Сам текст',
+        title: 'Заголовок',
+        size: TextSize.S,
     },
 };
