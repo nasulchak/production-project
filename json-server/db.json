@@ -602,15 +602,28 @@
             "id": "1",
             "username": "admin",
             "password": "123",
-            "role": "ADMIN",
+            "roles": [
+                "ADMIN"
+            ],
             "avatar": "https://shapka-youtube.ru/wp-content/uploads/2021/02/avatarka-dlya-skaypa-dlya-parney.jpg"
         },
         {
             "id": "2",
             "username": "user",
             "password": "123",
-            "role": "USER",
+            "roles": [
+                "USER"
+            ],
             "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+        },
+        {
+            "id": "3",
+            "username": "manager",
+            "password": "123",
+            "role": [
+                "MANAGER"
+            ],
+            "avatar": "https://cdn-icons-png.flaticon.com/512/4205/4205906.png"
         }
     ],
     "profile": [
