@@ -13,7 +13,8 @@ type Story = StoryObj<typeof Dropdown>;
 
 export const Primary: Story = {
     args: {
-        trigger: <Button>Open</Button>,
+        // eslint-disable-next-line i18next/no-literal-string
+        trigger: <Button>Ope n</Button>,
         items: [
             {
                 content: 'first',
