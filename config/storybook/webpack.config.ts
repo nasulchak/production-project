@@ -16,7 +16,7 @@ export default ({ config }: { config: webpack.Configuration}) => {
     config.plugins?.push(
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(process.env.NODE_ENV === 'development'),
-            __API__: JSON.stringify(''),
+            __API__: JSON.stringify('http://127.0.0.1:8000'),
             __PROJECT__: JSON.stringify('storybook'),
         }),
     );

@@ -1,16 +1,20 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { Text } from 'shared/ui/Text';
 import { TextSize } from 'shared/ui/Text/ui/Text';
 import { useTranslation } from 'react-i18next';
 import {
-    List, ListRowProps, WindowScroller,
+    List as _List, ListProps, ListRowProps, WindowScroller as _WindowScroller,
+    WindowScrollerProps,
 } from 'react-virtualized';
 import { PAGE_ID } from 'widgets/Page/Page';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+
+const List = _List as unknown as FC<ListProps>;
+const WindowScroller = _WindowScroller as unknown as FC<WindowScrollerProps>;
 
 interface ArticleListProps {
     className?: string;
@@ -77,7 +81,6 @@ export const ArticleList = memo((props : ArticleListProps) => {
             </div>
         );
     }
-
     return (
         <WindowScroller
             scrollElement={document.getElementById(PAGE_ID) as Element}
@@ -87,6 +90,7 @@ export const ArticleList = memo((props : ArticleListProps) => {
                     height, width, registerChild, scrollTop, isScrolling, onChildScroll,
                 }) => (
                     <div
+                    // @ts-ignore
                         ref={registerChild}
                         className={classNames(cls.ArticleList, {}, [className, cls[view]])}
                     >

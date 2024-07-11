@@ -5,9 +5,10 @@ import { AddCommentForm } from 'features/addCommentForm';
 import { CommentList } from 'entities/Comment';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { useCallback } from 'react';
+import { Suspense, useCallback } from 'react';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from 'shared/ui/Stack';
+import { Loader } from 'shared/ui/Loader/ui/Loader';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
@@ -42,9 +43,11 @@ export const ArticleDetailsComments = ({ className, id } : ArticleDetailsComment
                 title={t('Комментарии')}
             />
 
-            <AddCommentForm
-                onSendComment={onSendComment}
-            />
+            <Suspense fallback={<Loader />}>
+                <AddCommentForm
+                    onSendComment={onSendComment}
+                />
+            </Suspense>
 
             <CommentList
                 isLoading={commentsIsLoading}
