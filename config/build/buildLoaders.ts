@@ -3,16 +3,17 @@ import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { buildBabelLoader } from './loaders/buildBabelLoder';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+    // const typescriptLoader = {
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/,
+    // };
 
-    const cssLoader = buildCssLoader(isDev);
+    const cssLoader = buildCssLoader(options.isDev);
 
-    const babelLoader = buildBabelLoader(isDev);
+    const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+    const tsxCodelBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
     const assestLoader = {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -39,8 +40,8 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     return [
         svgLoader,
         fileLoader,
-        babelLoader,
-        typescriptLoader,
+        codeBabelLoader,
+        tsxCodelBabelLoader,
         cssLoader,
         assestLoader,
     ];
