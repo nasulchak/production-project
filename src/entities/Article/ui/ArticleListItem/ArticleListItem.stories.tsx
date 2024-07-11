@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
 import type { Meta, StoryObj } from '@storybook/react';
 import {
-    Article, ArticleBlockType, ArticleType, ArticleView,
+    Article,
 } from '../../model/types/article';
+import { ArticleBlockType, ArticleView, ArticleType } from '../../model/consts/consts';
 import { ArticleListItem } from './ArticleListItem';
 
 const article: Article = {
