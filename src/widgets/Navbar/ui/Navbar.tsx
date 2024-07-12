@@ -4,19 +4,12 @@ import { memo, useCallback, useState } from 'react';
 import { Button } from 'shared/ui/Button';
 import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { LoginModal } from 'features/AuthByUsername';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
-} from 'entities/User';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { HStack } from 'shared/ui/Stack';
-import { Icon } from 'shared/ui/Icon/Icon';
-import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
-import { Dropdown, Popover } from 'shared/ui/Popups';
-import { NotificationList } from 'entities/Notification';
 import { NotificationButton } from 'features/notificationButton';
 import { AvatarDropDown } from 'features/avatarDropdown';
 import cls from './Navbar.module.scss';
@@ -56,6 +49,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 <HStack gap="16" className={cls.actions}>
                     <NotificationButton />
                     <AvatarDropDown />
+
                 </HStack>
 
             </header>
