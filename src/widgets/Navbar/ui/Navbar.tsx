@@ -11,8 +11,14 @@ import {
 import { Text, TextTheme } from 'shared/ui/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { HStack } from 'shared/ui/Stack';
+import { Icon } from 'shared/ui/Icon/Icon';
+import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
+import { Dropdown, Popover } from 'shared/ui/Popups';
+import { NotificationList } from 'entities/Notification';
+import { NotificationButton } from 'features/notificationButton';
+import { AvatarDropDown } from 'features/avatarDropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -22,11 +28,8 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
 
-    const dispath = useDispatch();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
-    const isAdmin = useSelector(isUserAdmin);
-    const isManager = useSelector(isUserManager);
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -35,12 +38,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const onShoweModal = useCallback(() => {
         setIsAuthModal(true);
     }, []);
-
-    const onLogout = useCallback(() => {
-        dispath(userActions.logout());
-    }, [dispath]);
-
-    const isAdminPanelAvailable = isAdmin || isManager;
 
     if (authData) {
         return (
@@ -56,25 +53,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <Dropdown
-                    items={[
-                        {
-                            content: t('Профиль'),
-                            href: RoutePath.profile + authData.id,
-                        },
-                        ...(isAdminPanelAvailable ? [{
-                            content: t('Админка'),
-                            href: RoutePath.admin_panel,
-                        }] : []),
-                        {
-                            content: t('Выйти'),
-                            onClick: onLogout,
-                        },
-                    ]}
-                    trigger={<Avatar size={30} src={authData.avatar} />}
-                    className={cls.dropdown}
-                    direction="bottom left"
-                />
+                <HStack gap="16" className={cls.actions}>
+                    <NotificationButton />
+                    <AvatarDropDown />
+                </HStack>
+
             </header>
         );
     }
