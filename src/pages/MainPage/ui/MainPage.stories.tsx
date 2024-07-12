@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { styleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { storeDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { styleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { storeDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import MainPage from './MainPage';
 
 const meta: Meta<typeof MainPage> = {

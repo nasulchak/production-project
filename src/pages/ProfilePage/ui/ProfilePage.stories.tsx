@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { styleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { storeDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { styleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { storeDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 import ProfilePage from './ProfilePage';
 
 const meta: Meta<typeof ProfilePage> = {

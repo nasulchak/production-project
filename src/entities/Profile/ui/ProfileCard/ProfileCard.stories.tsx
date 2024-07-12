@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { storeDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Country } from 'shared/const/Country';
-import { Currency } from 'entities/Currency';
-import avatar from 'shared/assets/tests/storybook.jpg';
+import { storeDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Country } from '@/shared/const/Country';
+import { Currency } from '@/entities/Currency';
+import avatar from '@/shared/assets/tests/storybook.jpg';
 import { ProfileCard } from './ProfileCard';
 
 const meta: Meta<typeof ProfileCard> = {

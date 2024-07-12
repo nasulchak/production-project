@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { styleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { styleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 import { Card } from './Card';
 import { Text } from '../Text';
 

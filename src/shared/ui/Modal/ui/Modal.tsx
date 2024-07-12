@@ -1,8 +1,8 @@
-import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import { ReactNode } from 'react';
-import { useModal } from 'shared/lib/hooks/useModal/useModal';
 import { useDrag } from '@use-gesture/react';
 import { a, useSpring, config } from '@react-spring/web';
+import { useModal } from '@/shared/lib/hooks/useModal/useModal';
+import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import { Overlay } from '../../Overlay/Overlay';
 import { Portal } from '../../Portal/Portal';
 import cls from './Modal.module.scss';

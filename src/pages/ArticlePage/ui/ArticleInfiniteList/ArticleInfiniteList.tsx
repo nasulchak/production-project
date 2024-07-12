@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { ArticleList } from 'entities/Article';
-import { Text } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
+import { ArticleList } from '@/entities/Article';
+import { Text } from '@/shared/ui/Text';
 import { getArticles } from '../../model/slices/articlePageSlice';
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
 
