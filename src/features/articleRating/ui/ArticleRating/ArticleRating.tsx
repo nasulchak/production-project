@@ -25,12 +25,6 @@ const ArticleRating = memo(({ className, articleId } : ArticleRatingProps) => {
     const rating = data?.[0];
 
     const handleRateArticle = useCallback((starsCount: number, feedback?: string) => {
-        console.log({
-            userId: userData?.id ?? '',
-            articleId,
-            rate: starsCount,
-            feedback,
-        });
         try {
             rateArticleMutation({
                 userId: userData?.id ?? '',
