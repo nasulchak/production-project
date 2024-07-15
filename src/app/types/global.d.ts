@@ -28,3 +28,10 @@ type DeepPartial<T> = T extends Object ? {
 type OptionalRecord<K extends keyof any, T> = {
     [P in K]?: T;
 }
+
+declare module '*.svg?react' {
+    import { FC, SVGProps } from 'react';
+
+    const ReactComponent: FC<SVGProps<SVGSVGElement>>;
+    export default ReactComponent;
+}
