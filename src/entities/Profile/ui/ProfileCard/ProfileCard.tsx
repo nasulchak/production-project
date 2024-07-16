@@ -1,10 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextTheme } from '@/shared/ui/Text';
-import { Input } from '@/shared/ui/Input/Input';
-import { Loader } from '@/shared/ui/Loader/ui/Loader';
-import { TextAlign } from '@/shared/ui/Text/ui/Text';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Text, TextTheme, TextAlign } from '@/shared/ui/Text';
+import { Input } from '@/shared/ui/Input';
+import { Loader } from '@/shared/ui/Loader';
+import { Avatar } from '@/shared/ui/Avatar';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country } from '@/shared/const/Country';
 import { CountrySelect } from '@/entities/Country';
