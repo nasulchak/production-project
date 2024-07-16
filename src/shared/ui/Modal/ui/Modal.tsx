@@ -1,6 +1,4 @@
 import { ReactNode } from 'react';
-import { useDrag } from '@use-gesture/react';
-import { a, useSpring, config } from '@react-spring/web';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import { Overlay } from '../../Overlay/Overlay';

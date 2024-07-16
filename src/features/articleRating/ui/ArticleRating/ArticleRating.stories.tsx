@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { url } from 'inspector';
 import ArticleRating from './ArticleRating';
 import { storeDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { StateSchema } from '@/app/providers/StoreProvider';

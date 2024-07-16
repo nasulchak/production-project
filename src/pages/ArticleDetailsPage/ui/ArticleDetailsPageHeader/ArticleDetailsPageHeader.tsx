@@ -4,10 +4,8 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { getUserAuthData } from '@/entities/User';
 import { getArticleDetailsData } from '@/entities/Article';
 import { HStack } from '@/shared/ui/Stack';
-import cls from './ArticleDetailsPageHeader.module.scss';
 import { getCanEditAricle } from '../../model/selectors/article/article';
 import { RoutePath } from '@/shared/const/router';
 
