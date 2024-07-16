@@ -63,6 +63,13 @@ module.exports = {
             alias: '@',
             testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
         }],
+        'feature-sliced-custom-plugin/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

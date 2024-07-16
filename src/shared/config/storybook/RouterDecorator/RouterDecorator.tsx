@@ -1,6 +1,5 @@
 import { Decorator } from '@storybook/react';
-import React from 'react';
-
+// eslint-disable-next-line feature-sliced-custom-plugin/layer-imports
 import '@/app/styles/index.scss';
 import { BrowserRouter } from 'react-router-dom';
 

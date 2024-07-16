@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { styleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import AboutPage from './AboutPage';
+import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof AboutPage> = {
     title: 'pages/AboutPage',

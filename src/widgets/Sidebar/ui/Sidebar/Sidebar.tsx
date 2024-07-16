@@ -4,10 +4,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/ui/Button';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { getSidebarItem } from '../../model/selectors/getSidebarItem';
-import { ThemeSwitcher } from '../../../ThemeSwitcher';
-import { LangSwitcher } from '../../../LangSwitcher';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { LangSwitcher } from '@/features/LangSwitcher';
 
 interface SidebarProps {
     className?: string;

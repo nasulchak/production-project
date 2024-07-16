@@ -8,11 +8,11 @@ import { LoginModal } from '@/features/AuthByUsername';
 import { getUserAuthData } from '@/entities/User';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropDown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string
@@ -42,7 +42,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 />
                 <AppLink
                     theme={AppLinkTheme.SECONDARY}
-                    to={RoutePath.articles_create}
+                    to={RoutePath.article_create}
                 >
                     {t('Создать статью')}
                 </AppLink>
