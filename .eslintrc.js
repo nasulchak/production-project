@@ -22,7 +22,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
-        'alex-plugin',
+        'feature-sliced-custom-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -48,7 +48,7 @@ module.exports = {
             {
                 markupOnly: true,
                 ignoreAttribute:
-                ['data-testid', 'to', 'alt', 'target', 'justify', 'direction', 'align', 'gap', 'role', 'anchor', 'as', 'border'],
+                    ['data-testid', 'to', 'alt', 'target', 'justify', 'direction', 'align', 'gap', 'role', 'anchor', 'as', 'border'],
             }],
         'max-len': ['error', { ignoreComments: true, code: 140 }],
         'jsx-a11y/click-events-have-key-events': 'off',
@@ -58,7 +58,11 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
-        'alex-plugin/path-checker': ['error', { alias: '@' }],
+        'feature-sliced-custom-plugin/path-checker': ['error', { alias: '@' }],
+        'feature-sliced-custom-plugin/public-api-imports': ['error', {
+            alias: '@',
+            testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
+        }],
     },
     globals: {
         __IS_DEV__: true,

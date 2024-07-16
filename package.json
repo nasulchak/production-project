@@ -72,7 +72,7 @@
         "css-loader": "^6.6.0",
         "eslint": "^8.57.0",
         "eslint-config-airbnb": "^19.0.4",
-        "eslint-plugin-alex-plugin": "^0.0.3",
+        "eslint-plugin-feature-sliced-custom-plugin": "^0.0.1",
         "eslint-plugin-i18next": "^5.1.2",
         "eslint-plugin-import": "^2.29.1",
         "eslint-plugin-jsx-a11y": "^6.8.0",
