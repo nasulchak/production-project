@@ -1,4 +1,3 @@
-import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { CounterSchema } from '../types/counterSchema';
 import { buildSlice } from '@/shared/lib/store';
