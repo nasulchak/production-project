@@ -14,7 +14,7 @@ import {
 } from '../../model/types/article';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 interface ArticleListItemProps {
     className?: string;
@@ -32,11 +32,6 @@ export const ArticleListItem = (props : ArticleListItemProps) => {
     } = props;
 
     const { t } = useTranslation('article');
-
-    // const navigate = useNavigate();
-    // const onOpenArticle = useCallback(() => {
-    //     navigate(RoutePath.articles_details + article.id);
-    // }, [article.id, navigate]);
 
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
@@ -64,7 +59,7 @@ export const ArticleListItem = (props : ArticleListItemProps) => {
                     <div className={cls.footer}>
                         <AppLink
                             target={target}
-                            to={RoutePath.article_details + article.id}
+                            to={getRouteArticleDetails(article.id)}
                         >
                             <Button
                                 theme={ButtonTheme.OUTLINE}
@@ -82,7 +77,7 @@ export const ArticleListItem = (props : ArticleListItemProps) => {
     return (
         <AppLink
             target={target}
-            to={RoutePath.article_details + article.id}
+            to={getRouteArticleDetails(article.id)}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
         >
             <Card

@@ -7,7 +7,7 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { getArticleDetailsData } from '@/entities/Article';
 import { HStack } from '@/shared/ui/Stack';
 import { getCanEditAricle } from '../../model/selectors/article/article';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleEdit, getRouterArticles } from '@/shared/const/router';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -22,12 +22,14 @@ export const ArticleDetailsPageHeader = ({ className } : ArticleDetailsPageProps
     const canEdit = useSelector(getCanEditAricle);
 
     const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
+        navigate(getRouterArticles());
     }, [navigate]);
 
     const onEditArticle = useCallback(() => {
-        navigate(`${RoutePath.article_details}${article?.id}/edit`);
-    }, [navigate, article?.id]);
+        if (article) {
+            navigate(getRouteArticleEdit(article?.id));
+        }
+    }, [navigate, article]);
 
     return (
         <HStack max justify="between" className={classNames('', {}, [className])}>
