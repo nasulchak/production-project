@@ -8,4 +8,3 @@ export {
 } from './model/consts/consts';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 export { getArticleDetailsData } from './model/selectors/articleDetails';
-// export { articleDetailsReducer } from './model/slice/articleDetailsSlice';
