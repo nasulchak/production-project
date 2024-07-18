@@ -40,20 +40,20 @@ jobs:
         if: always()
         run: npm run test:unit
 
-      - name: Setup Pages
-        if: always()
-        uses: actions/configure-pages@v2
+    #   - name: Setup Pages
+    #     if: always()
+    #     uses: actions/configure-pages@v2
 
       - name: Upload artifact
         if: success()        
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v1
         with:
           name: 'github-pages'
           path: 'reports'
      
       - name: Deploy to GitHub Pages
         if: success()        
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1
         id: deployment
 
   checks:
