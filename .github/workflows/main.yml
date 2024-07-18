@@ -40,10 +40,6 @@ jobs:
         if: always()
         run: npm run test:unit
 
-    #   - name: Setup Pages
-    #     if: always()
-    #     uses: actions/configure-pages@v2
-
       - name: Upload artifact
         if: success()        
         uses: actions/upload-pages-artifact@v1
