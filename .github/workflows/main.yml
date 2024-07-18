@@ -45,7 +45,7 @@ jobs:
         uses: actions/configure-pages@v2
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: 'Test_Reports'
@@ -54,7 +54,7 @@ jobs:
       - name: Deploy to GitHub Pages
         if: always()
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
 
   checks:
     runs-on: ubuntu-latest
