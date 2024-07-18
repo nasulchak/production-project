@@ -50,7 +50,7 @@ jobs:
         if: always()
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v1
         if: always()
         with:
           name: 'Test_Reports'
