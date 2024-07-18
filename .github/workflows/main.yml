@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: 'Test_Reports'
+          name: 'github-pages'
           path: 'reports'
      
       - name: Deploy to GitHub Pages
