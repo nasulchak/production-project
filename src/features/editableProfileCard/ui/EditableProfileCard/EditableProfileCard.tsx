@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import { Country } from '@/entities/Country';
@@ -18,6 +18,7 @@ import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileF
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileHeader } from '../EditableProfileHeader/EditableProfileHeader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -35,7 +36,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     } = props;
     const { t } = useTranslation('profile');
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);

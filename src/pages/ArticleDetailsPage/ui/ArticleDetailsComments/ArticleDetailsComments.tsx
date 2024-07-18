@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Suspense, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text, TextSize } from '@/shared/ui/Text';
@@ -12,6 +12,7 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
 import { getArticleCommentsIsError, getArticleCommentsIsLoading } from '../../model/selectors/comments/comments';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -25,7 +26,7 @@ export const ArticleDetailsComments = ({ className, id } : ArticleDetailsComment
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const commentsError = useSelector(getArticleCommentsIsError);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
