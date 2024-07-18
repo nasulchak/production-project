@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-          
+
       - name: install modules
         run: npm ci --force
 
@@ -41,15 +41,18 @@ jobs:
 
 
       - name: Setup Pages
+        if: always()
         uses: actions/configure-pages@v2
 
       - name: Upload artifact
         uses: actions/upload-artifact@v1
+        if: always()
         with:
           name: 'Test_Reports'
           path: 'reports'
      
       - name: Deploy to GitHub Pages
+        if: always()
         id: deployment
         uses: actions/deploy-pages@v1
 
