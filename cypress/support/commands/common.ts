@@ -1,6 +1,6 @@
-import { selectByTestId } from 'cypress/helpers/selectByTestId';
 import { USER_LOCALSTORAGE_KEY } from '../../../src/shared/const/localStorage';
-import { User } from '../../../src/entities/User/index';
+import { User } from '../../../src/entities/User';
+import { selectByTestId } from '../../helpers/selectByTestId';
 // eslint-disable-next-line arrow-body-style
 export const login = (username:string = 'testuser', password: string = '123') => {
     return cy.request({
