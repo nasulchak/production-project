@@ -10,6 +10,7 @@ describe('Пользователь заходит на страницу стат
     after(() => {
         cy.removeArticle(currentArticleId);
     });
+
     it('И видит содержимое статьи', () => {
         cy.getByTestId('ArticleDetails.info').should('exist');
     });
@@ -22,7 +23,8 @@ describe('Пользователь заходит на страницу стат
         cy.addComment('Text');
         cy.getByTestId('CommentCard.Content').should('have.length', 1);
     });
-    it('И ставит оценку', () => {
+    it('И ставит оценку (пример со стабом на фикстурах)', () => {
+        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
         cy.getByTestId('ArticleDetails.info').should('exist');
         cy.getByTestId('RatingCard').scrollIntoView();
         cy.setRate(5, 'feedback');
