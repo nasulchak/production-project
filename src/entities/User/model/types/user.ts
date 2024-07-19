@@ -1,6 +1,6 @@
 import { UserRole } from '../consts/consts';
 
-export interface User{
+export interface User {
     id: string;
     username: string;
     avatar?: string;
@@ -8,6 +8,6 @@ export interface User{
 }
 
 export interface UserSchema {
-    authData?: User
+    authData?: User;
     _inited: boolean;
 }

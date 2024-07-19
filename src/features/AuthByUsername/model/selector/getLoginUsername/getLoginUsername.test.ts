@@ -12,7 +12,7 @@ describe('getLoginUsername.test', () => {
     });
 
     test('should work by enpty state', () => {
-        const state: DeepPartial<StateSchema> = { };
+        const state: DeepPartial<StateSchema> = {};
         expect(getLoginUsername(state as StateSchema)).toEqual('');
     });
 });

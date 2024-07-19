@@ -1,8 +1,9 @@
-import {
-    ReactNode, useCallback, useEffect,
-} from 'react';
+import { ReactNode, useCallback, useEffect } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import {
+    AnimationProvider,
+    useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
@@ -16,12 +17,10 @@ interface DrawerProps {
 }
 const height = window.innerHeight - 100;
 
-export const DrawerContent = (props : DrawerProps) => {
+export const DrawerContent = (props: DrawerProps) => {
     const { Geasture, Spring } = useAnimationLibs();
 
-    const {
-        className, children, isOpen, onClose, lazy,
-    } = props;
+    const { className, children, isOpen, onClose, lazy } = props;
 
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
 
@@ -81,12 +80,14 @@ export const DrawerContent = (props : DrawerProps) => {
     return (
         <Portal>
             <div className={classNames(cls.Drawer, {}, [className])}>
-                <Overlay
-                    onClick={close}
-                />
+                <Overlay onClick={close} />
                 <Spring.a.div
                     className={cls.sheet}
-                    style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
+                    style={{
+                        display,
+                        bottom: `calc(-100vh + ${height - 100}px)`,
+                        y,
+                    }}
                     {...bind()}
                 >
                     {children}

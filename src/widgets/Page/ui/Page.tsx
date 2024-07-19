@@ -1,6 +1,4 @@
-import {
-    MutableRefObject, ReactNode, UIEvent, useRef,
-} from 'react';
+import { MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -21,7 +19,7 @@ interface PageProps extends TestProps {
 
 export const PAGE_ID = 'PAGE_ID';
 
-export const Page = (props : PageProps) => {
+export const Page = (props: PageProps) => {
     const {
         className,
         children,
@@ -33,21 +31,23 @@ export const Page = (props : PageProps) => {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname));
-
-    useInfiniteScroll(
-        {
-            triggerRef,
-            wrapperRef,
-            callback: onScrollEnd,
-        },
+    const scrollPosition = useSelector((state: StateSchema) =>
+        getUIScrollByPath(state, pathname),
     );
 
+    useInfiniteScroll({
+        triggerRef,
+        wrapperRef,
+        callback: onScrollEnd,
+    });
+
     const onScroll = useThrottle((e: UIEvent<HTMLElement>) => {
-        dispatch(uiActions.setScrollPosition({
-            position: e.currentTarget.scrollTop,
-            path: pathname,
-        }));
+        dispatch(
+            uiActions.setScrollPosition({
+                position: e.currentTarget.scrollTop,
+                path: pathname,
+            }),
+        );
     }, 500);
 
     useInitialEffect(() => {
@@ -63,7 +63,9 @@ export const Page = (props : PageProps) => {
             data-testid={dataTestId ?? 'Page'}
         >
             {children}
-            {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
+            {onScrollEnd ? (
+                <div className={cls.trigger} ref={triggerRef} />
+            ) : null}
         </main>
     );
 };

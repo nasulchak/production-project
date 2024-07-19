@@ -15,11 +15,8 @@ const meta: Meta<typeof ThemeSwitcher> = {
 export default meta;
 type Story = StoryObj<typeof ThemeSwitcher>;
 
-export const Light: Story = {
-};
+export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [
-        styleDecorator(Theme.DARK),
-    ],
+    decorators: [styleDecorator(Theme.DARK)],
 };

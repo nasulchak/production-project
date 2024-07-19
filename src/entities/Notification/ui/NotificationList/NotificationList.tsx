@@ -9,7 +9,7 @@ interface NotificationListProps {
     className?: string;
 }
 
-export const NotificationList = (props : NotificationListProps) => {
+export const NotificationList = (props: NotificationListProps) => {
     const { className } = props;
 
     const { data, isLoading } = useNotifications(null, {
@@ -27,7 +27,6 @@ export const NotificationList = (props : NotificationListProps) => {
                 <Skeleton width="100%" border="8px" height="80px" />
                 <Skeleton width="100%" border="8px" height="80px" />
             </VStack>
-
         );
     }
 
@@ -37,11 +36,9 @@ export const NotificationList = (props : NotificationListProps) => {
             max
             className={classNames(cls.NotificationList, {}, [className])}
         >
-            {
-                data?.map((item) => (
-                    <NotificationItem key={item.id} item={item} />
-                ))
-            }
+            {data?.map((item) => (
+                <NotificationItem key={item.id} item={item} />
+            ))}
         </VStack>
     );
 };

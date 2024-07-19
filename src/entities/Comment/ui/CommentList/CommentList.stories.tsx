@@ -38,11 +38,7 @@ export const Primary: Story = {
             },
         ],
     },
-    decorators: [
-        storeDecorator({
-
-        } as StateSchema),
-    ],
+    decorators: [storeDecorator({} as StateSchema)],
 };
 
 export const Loading: Story = {
@@ -69,9 +65,5 @@ export const Loading: Story = {
         ],
         isLoading: true,
     },
-    decorators: [
-        storeDecorator({
-
-        } as StateSchema),
-    ],
+    decorators: [storeDecorator({} as StateSchema)],
 };

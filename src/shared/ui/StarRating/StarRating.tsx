@@ -13,13 +13,8 @@ interface StarRatingProps {
 
 const stars = [1, 2, 3, 4, 5];
 
-export const StarRating = (props : StarRatingProps) => {
-    const {
-        className,
-        size = 30,
-        selectedStars = 0,
-        onSelect,
-    } = props;
+export const StarRating = (props: StarRatingProps) => {
+    const { className, size = 30, selectedStars = 0, onSelect } = props;
 
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
@@ -46,26 +41,28 @@ export const StarRating = (props : StarRatingProps) => {
 
     return (
         <div className={classNames(cls.StarRating, {}, [className])}>
-            {
-                stars.map((starNumber) => (
-                    <Icon
-                        className={classNames(
-                            cls.starIcon,
-                            { [cls.selected]: isSelected },
-                            [currentStarsCount >= starNumber ? cls.hovered : cls.normal],
-                        )}
-                        SVG={StarIcon}
-                        key={starNumber}
-                        width={size}
-                        height={size}
-                        onMouseLeave={onLeave}
-                        onMouseEnter={onHover(starNumber)}
-                        onClick={onClick(starNumber)}
-                        data-testid={`StarRating${starNumber}`}
-                        data-selected={currentStarsCount >= starNumber}
-                    />
-                ))
-            }
+            {stars.map((starNumber) => (
+                <Icon
+                    className={classNames(
+                        cls.starIcon,
+                        { [cls.selected]: isSelected },
+                        [
+                            currentStarsCount >= starNumber
+                                ? cls.hovered
+                                : cls.normal,
+                        ],
+                    )}
+                    SVG={StarIcon}
+                    key={starNumber}
+                    width={size}
+                    height={size}
+                    onMouseLeave={onLeave}
+                    onMouseEnter={onHover(starNumber)}
+                    onClick={onClick(starNumber)}
+                    data-testid={`StarRating${starNumber}`}
+                    data-selected={currentStarsCount >= starNumber}
+                />
+            ))}
         </div>
     );
 };

@@ -13,7 +13,7 @@ interface NotificationButtonProps {
     className?: string;
 }
 
-export const NotificationButton = (props : NotificationButtonProps) => {
+export const NotificationButton = (props: NotificationButtonProps) => {
     const { className } = props;
     const [isOpen, setIsOpen] = useState(false);
     const onOpenDrawer = useCallback(() => {
@@ -34,7 +34,9 @@ export const NotificationButton = (props : NotificationButtonProps) => {
         <div>
             <BrowserView>
                 <Popover
-                    className={classNames(cls.NotificationButton, {}, [className])}
+                    className={classNames(cls.NotificationButton, {}, [
+                        className,
+                    ])}
                     trigger={trigger}
                     direction="bottom left"
                 >
@@ -48,6 +50,5 @@ export const NotificationButton = (props : NotificationButtonProps) => {
                 </Drawer>
             </MobileView>
         </div>
-
     );
 };

@@ -4,7 +4,10 @@ import { useCallback } from 'react';
 import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar';
 import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
 } from '@/entities/User';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 
@@ -12,7 +15,7 @@ interface AvatarDropDownProps {
     className?: string;
 }
 
-export const AvatarDropDown = (props : AvatarDropDownProps) => {
+export const AvatarDropDown = (props: AvatarDropDownProps) => {
     const { className } = props;
     const { t } = useTranslation();
 
@@ -37,16 +40,22 @@ export const AvatarDropDown = (props : AvatarDropDownProps) => {
                     content: t('Профиль'),
                     href: getRouteProfile(authData.id),
                 },
-                ...(isAdminPanelAvailable ? [{
-                    content: t('Админка'),
-                    href: getRouteAdmin(),
-                }] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: t('Админка'),
+                              href: getRouteAdmin(),
+                          },
+                      ]
+                    : []),
                 {
                     content: t('Выйти'),
                     onClick: onLogout,
                 },
             ]}
-            trigger={<Avatar fallbackInverted size={30} src={authData.avatar} />}
+            trigger={
+                <Avatar fallbackInverted size={30} src={authData.avatar} />
+            }
             direction="bottom left"
         />
     );

@@ -16,7 +16,9 @@ interface EditableProfileHeaderProps {
     className?: string;
 }
 
-export const EditableProfileHeader = ({ className } : EditableProfileHeaderProps) => {
+export const EditableProfileHeader = ({
+    className,
+}: EditableProfileHeaderProps) => {
     const { t } = useTranslation('profile');
 
     const authData = useSelector(getUserAuthData);
@@ -39,41 +41,42 @@ export const EditableProfileHeader = ({ className } : EditableProfileHeaderProps
     }, [dispatch]);
 
     return (
-        <HStack justify="between" className={classNames('', {}, [className])} max>
+        <HStack
+            justify="between"
+            className={classNames('', {}, [className])}
+            max
+        >
             <Text title={t('Профиль')} />
             {canEdit && (
                 <div>
-                    {readOnly
-                        ? (
+                    {readOnly ? (
+                        <Button
+                            theme={ButtonTheme.OUTLINE}
+                            onClick={onEdit}
+                            data-testid="EditableProfileHeader.EditButton"
+                        >
+                            {t('Редактировать')}
+                        </Button>
+                    ) : (
+                        <HStack gap="8">
                             <Button
                                 theme={ButtonTheme.OUTLINE}
-                                onClick={onEdit}
-                                data-testid="EditableProfileHeader.EditButton"
+                                onClick={onCancelEdit}
+                                data-testid="EditableProfileHeader.CancelButton"
                             >
-                                {t('Редактировать')}
+                                {t('Отменить')}
                             </Button>
-                        ) : (
-                            <HStack gap="8">
-                                <Button
-                                    theme={ButtonTheme.OUTLINE}
-                                    onClick={onCancelEdit}
-                                    data-testid="EditableProfileHeader.CancelButton"
-
-                                >
-                                    {t('Отменить')}
-                                </Button>
-                                <Button
-                                    theme={ButtonTheme.OUTLINE_RED}
-                                    onClick={onSave}
-                                    data-testid="EditableProfileHeader.SaveButton"
-                                >
-                                    {t('Сохранить')}
-                                </Button>
-                            </HStack>
-                        )}
+                            <Button
+                                theme={ButtonTheme.OUTLINE_RED}
+                                onClick={onSave}
+                                data-testid="EditableProfileHeader.SaveButton"
+                            >
+                                {t('Сохранить')}
+                            </Button>
+                        </HStack>
+                    )}
                 </div>
             )}
-
         </HStack>
     );
 };

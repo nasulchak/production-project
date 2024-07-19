@@ -12,7 +12,7 @@ describe('getLoginIsLiading.test', () => {
     });
 
     test('should work by enpty state', () => {
-        const state: DeepPartial<StateSchema> = { };
+        const state: DeepPartial<StateSchema> = {};
         expect(getLoginIsLoading(state as StateSchema)).toEqual(false);
     });
 });

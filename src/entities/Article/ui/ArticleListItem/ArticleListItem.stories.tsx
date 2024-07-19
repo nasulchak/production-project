@@ -1,9 +1,11 @@
 /* eslint-disable max-len */
 import type { Meta, StoryObj } from '@storybook/react';
+import { Article } from '../../model/types/article';
 import {
-    Article,
-} from '../../model/types/article';
-import { ArticleBlockType, ArticleView, ArticleType } from '../../model/consts/consts';
+    ArticleBlockType,
+    ArticleView,
+    ArticleType,
+} from '../../model/consts/consts';
 import { ArticleListItem } from './ArticleListItem';
 
 const article: Article = {
@@ -17,9 +19,7 @@ const article: Article = {
         id: '1',
         username: 'Alex',
     },
-    type: [
-        ArticleType.IT,
-    ],
+    type: [ArticleType.IT],
     blocks: [
         {
             id: '1',

@@ -11,6 +11,7 @@
         "build:prod": "webpack --env mode=production apiUrl=https://production-project-server-brown-delta.vercel.app",
         "build:dev": "webpack --env mode=development",
         "lint:ts": "eslint \"**/*.{ts,tsx}\"",
+        "prettier": "npx prettier --write **/*.{ts,tsx,json}",
         "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
         "lint:scss": "stylelint \"**/*.scss\"",
         "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
@@ -29,7 +30,10 @@
         "prepare": "husky install"
     },
     "lint-staged": {
-        "**/*.{ts,tsx}": "eslint"
+        "**/*.{ts,tsx}": [
+            "prettier --list-different",
+            "eslint"
+        ]
     },
     "keywords": [],
     "author": "",
@@ -130,9 +134,11 @@
         "axios": "^1.7.2",
         "babel-plugin-i18next-extract": "^0.8.3",
         "concurrently": "^8.2.2",
+        "eslint-config-prettier": "^9.1.0",
         "i18next": "^23.11.5",
         "i18next-browser-languagedetector": "^6.1.3",
         "i18next-http-backend": "^1.3.2",
+        "prettier": "3.3.3",
         "react": "^18.3.1",
         "react-device-detect": "^2.2.3",
         "react-dom": "^18.2.0",

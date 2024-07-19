@@ -47,9 +47,7 @@ export const WithoutRate: Story = {
                 url: `${__API__}/article-ratings?userId=1&articleId=1`,
                 method: 'POST',
                 status: 200,
-                response: [
-
-                ],
+                response: [],
             },
         ],
     },

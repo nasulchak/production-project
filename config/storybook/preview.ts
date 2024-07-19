@@ -4,10 +4,7 @@ import { routerDecorator } from '../../src/shared/config/storybook/RouterDecorat
 import { Theme } from '../../src/shared/const/theme';
 
 const preview: Preview = {
-    decorators: [
-        styleDecorator(Theme.LIGHT),
-        routerDecorator(),
-    ],
+    decorators: [styleDecorator(Theme.LIGHT), routerDecorator()],
     parameters: {
         controls: {
             matchers: {
@@ -16,7 +13,6 @@ const preview: Preview = {
             },
         },
     },
-
 };
 
 export default preview;

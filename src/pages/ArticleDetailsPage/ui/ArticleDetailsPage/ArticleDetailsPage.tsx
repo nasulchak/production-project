@@ -3,7 +3,10 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducerList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import cls from './ArticleDetailsPage.module.scss';
@@ -21,9 +24,9 @@ const reducers: ReducerList = {
     articleDetailsPage: articleDetailsPageReducer,
 };
 
-const ArticleDetailsPage = ({ className } : ArticleDetailsPageProps) => {
+const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article');
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     if (!id) {
         return null;
@@ -31,7 +34,9 @@ const ArticleDetailsPage = ({ className } : ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+            >
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
@@ -39,10 +44,8 @@ const ArticleDetailsPage = ({ className } : ArticleDetailsPageProps) => {
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>
-
             </Page>
         </DynamicModuleLoader>
-
     );
 };
 

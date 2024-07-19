@@ -6,17 +6,15 @@ interface ArticleEditPageProps {
     className?: string;
 }
 
-const ArticleEditPage = (props : ArticleEditPageProps) => {
+const ArticleEditPage = (props: ArticleEditPageProps) => {
     const { className } = props;
 
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
     const isEdit = Boolean(id);
 
     return (
         <Page className={classNames('', {}, [className])}>
-            {
-                isEdit ? 'Редактирование статьи' : 'Создание новой статьи'
-            }
+            {isEdit ? 'Редактирование статьи' : 'Создание новой статьи'}
         </Page>
     );
 };

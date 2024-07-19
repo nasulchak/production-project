@@ -13,6 +13,4 @@ const meta: Meta<typeof CurrencySelect> = {
 export default meta;
 type Story = StoryObj<typeof CurrencySelect>;
 
-export const Primary: Story = {
-
-};
+export const Primary: Story = {};

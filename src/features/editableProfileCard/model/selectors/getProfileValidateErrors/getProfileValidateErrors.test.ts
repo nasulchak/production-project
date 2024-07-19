@@ -20,6 +20,8 @@ describe('getProfileValidateErrors.test', () => {
 
     test('should work by enpty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getProfileValidateErrors(state as StateSchema)).toEqual(undefined);
+        expect(getProfileValidateErrors(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
 });

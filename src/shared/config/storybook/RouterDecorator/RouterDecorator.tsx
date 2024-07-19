@@ -4,8 +4,5 @@ import '@/app/styles/index.scss';
 import { BrowserRouter } from 'react-router-dom';
 
 export const routerDecorator = (): Decorator => (story) => (
-    <BrowserRouter>
-        {story()}
-    </BrowserRouter>
-
+    <BrowserRouter>{story()}</BrowserRouter>
 );

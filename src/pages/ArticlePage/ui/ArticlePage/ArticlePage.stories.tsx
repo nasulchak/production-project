@@ -13,6 +13,4 @@ const meta: Meta<typeof ArticlePage> = {
 export default meta;
 type Story = StoryObj<typeof ArticlePage>;
 
-export const Primary: Story = {
-
-};
+export const Primary: Story = {};

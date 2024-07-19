@@ -10,7 +10,10 @@ describe('Пользователь заходит на страницу проф
     });
 
     it('И профиль успешно загружается', () => {
-        cy.getByTestId('ProfileCard.firstname').should('have.value', 'test user');
+        cy.getByTestId('ProfileCard.firstname').should(
+            'have.value',
+            'test user',
+        );
     });
 
     after(() => {
@@ -22,6 +25,9 @@ describe('Пользователь заходит на страницу проф
         const newLastname = 'lastname';
         cy.updateProfile(newName, newLastname);
         cy.getByTestId('ProfileCard.firstname').should('have.value', newName);
-        cy.getByTestId('ProfileCard.lastname').should('have.value', newLastname);
+        cy.getByTestId('ProfileCard.lastname').should(
+            'have.value',
+            newLastname,
+        );
     });
 });

@@ -16,11 +16,18 @@ interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletos = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 15 : 3)
-    .fill(0)
-    .map((item, index) => (<ArticleListItemSkeleton className={cls.card} key={index} view={view} />));
+const getSkeletos = (view: ArticleView) =>
+    new Array(view === ArticleView.SMALL ? 15 : 3)
+        .fill(0)
+        .map((item, index) => (
+            <ArticleListItemSkeleton
+                className={cls.card}
+                key={index}
+                view={view}
+            />
+        ));
 
-export const ArticleList = memo((props : ArticleListProps) => {
+export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
         articles,
@@ -33,33 +40,32 @@ export const ArticleList = memo((props : ArticleListProps) => {
 
     if (!isLoading && !articles.length) {
         return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+            <div
+                className={classNames(cls.ArticleList, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
                 <Text size={TextSize.L} title={t('Статьи не найдены')} />
             </div>
         );
     }
     return (
-
         <div
             data-testid="ArticleList"
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
         >
-            {
-                articles.map((item) => (
-                    <ArticleListItem
-                        article={item}
-                        view={view}
-                        target={target}
-                        key={item.id}
-                        className={cls.card}
-                    />
-                ))
-            }
+            {articles.map((item) => (
+                <ArticleListItem
+                    article={item}
+                    view={view}
+                    target={target}
+                    key={item.id}
+                    className={cls.card}
+                />
+            ))}
 
-            {
-                isLoading && getSkeletos(view)
-            }
+            {isLoading && getSkeletos(view)}
         </div>
-
     );
 });

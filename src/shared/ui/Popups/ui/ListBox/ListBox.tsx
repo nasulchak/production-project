@@ -9,9 +9,9 @@ import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {
-    value: string,
-    content: ReactNode,
-    disabled?: boolean,
+    value: string;
+    content: ReactNode;
+    disabled?: boolean;
 }
 
 interface ListBoxProps {
@@ -43,18 +43,22 @@ export function ListBox(props: ListBoxProps) {
             <Listbox
                 disabled={readonly}
                 as="div"
-                className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
+                className={classNames(cls.ListBox, {}, [
+                    className,
+                    popupCls.popup,
+                ])}
                 value={value}
                 onChange={onChange}
             >
                 <Listbox.Button className={popupCls.trigger}>
-                    <Button disabled={readonly}>
-                        {value ?? defaultValue}
-                    </Button>
+                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </Listbox.Button>
-                <Listbox.Options className={classNames(cls.options, {}, [mapDirectionClass[direction]])}>
+                <Listbox.Options
+                    className={classNames(cls.options, {}, [
+                        mapDirectionClass[direction],
+                    ])}
+                >
                     {items?.map((item) => (
-
                         <Listbox.Option
                             key={item.value}
                             value={item.value}
@@ -63,7 +67,14 @@ export function ListBox(props: ListBoxProps) {
                         >
                             {({ active, selected }) => (
                                 <li
-                                    className={classNames(cls.item, { [popupCls.active]: active, [popupCls.disabled]: item.disabled }, [])}
+                                    className={classNames(
+                                        cls.item,
+                                        {
+                                            [popupCls.active]: active,
+                                            [popupCls.disabled]: item.disabled,
+                                        },
+                                        [],
+                                    )}
                                 >
                                     {selected && '!!!'}
                                     {item.content}
@@ -74,6 +85,5 @@ export function ListBox(props: ListBoxProps) {
                 </Listbox.Options>
             </Listbox>
         </HStack>
-
     );
 }

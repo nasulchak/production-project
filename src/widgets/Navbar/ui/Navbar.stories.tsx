@@ -45,14 +45,9 @@ export const UserAuthDark: Story = {
 };
 
 export const NoUserAuthLight: Story = {
-    decorators: [
-        storeDecorator({ } as StateSchema),
-    ],
+    decorators: [storeDecorator({} as StateSchema)],
 };
 
 export const NoUserAuthDark: Story = {
-    decorators: [
-        storeDecorator({} as StateSchema),
-        styleDecorator(Theme.DARK),
-    ],
+    decorators: [storeDecorator({} as StateSchema), styleDecorator(Theme.DARK)],
 };

@@ -10,7 +10,6 @@ const meta: Meta<typeof Text> = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-
 };
 
 export default meta;
@@ -36,9 +35,7 @@ export const PrimaryDark: Story = {
         text: 'Сам текст',
         title: 'Заголовок',
     },
-    decorators: [
-        styleDecorator(Theme.DARK),
-    ],
+    decorators: [styleDecorator(Theme.DARK)],
 };
 
 export const OnlyText: Story = {
@@ -51,9 +48,7 @@ export const OnlyTextDark: Story = {
     args: {
         text: 'Содержимое',
     },
-    decorators: [
-        styleDecorator(Theme.DARK),
-    ],
+    decorators: [styleDecorator(Theme.DARK)],
 };
 
 export const OnlyTitle: Story = {
@@ -66,9 +61,7 @@ export const OnlyTitleDark: Story = {
     args: {
         title: 'Заголовок',
     },
-    decorators: [
-        styleDecorator(Theme.DARK),
-    ],
+    decorators: [styleDecorator(Theme.DARK)],
 };
 
 export const SizeL: Story = {

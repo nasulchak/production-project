@@ -14,23 +14,18 @@ interface AvatarProps {
     fallbackInverted?: boolean;
 }
 
-export const Avatar = (props : AvatarProps) => {
-    const {
-        className,
-        src,
-        alt,
-        size = 100,
-        fallbackInverted,
-    } = props;
+export const Avatar = (props: AvatarProps) => {
+    const { className, src, alt, size = 100, fallbackInverted } = props;
 
     const mods: Mods = {};
 
-    const styles = useMemo(() => (
-        {
+    const styles = useMemo(
+        () => ({
             width: size,
             height: size,
-        }
-    ), [size]);
+        }),
+        [size],
+    );
 
     return (
         <AppImage
@@ -38,7 +33,14 @@ export const Avatar = (props : AvatarProps) => {
             alt={alt}
             style={styles}
             className={classNames(cls.Avatar, mods, [className])}
-            errorFallback={<Icon inverted={fallbackInverted} width={size} height={size} SVG={UserIcon} />}
+            errorFallback={
+                <Icon
+                    inverted={fallbackInverted}
+                    width={size}
+                    height={size}
+                    SVG={UserIcon}
+                />
+            }
             fallback={<Skeleton width={size} height={size} border="50%" />}
         />
     );

@@ -35,9 +35,7 @@ export const Dark: Story = {
         width: 600,
         height: 200,
     },
-    decorators: [
-        styleDecorator(Theme.DARK),
-    ],
+    decorators: [styleDecorator(Theme.DARK)],
 };
 
 export const CircleDark: Story = {
@@ -46,7 +44,5 @@ export const CircleDark: Story = {
         width: 100,
         height: 100,
     },
-    decorators: [
-        styleDecorator(Theme.DARK),
-    ],
+    decorators: [styleDecorator(Theme.DARK)],
 };

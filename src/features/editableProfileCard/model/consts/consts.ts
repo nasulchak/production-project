@@ -3,5 +3,5 @@ export enum ValidateProfileError {
     INCORECT_AGE = 'INCORECT_AGE',
     INCORECT_COUNTRY = 'INCORECT_COUNTRY',
     NO_DATA = 'NO_DATA',
-    SERVER_ERROR = 'SERVER_ERROR'
+    SERVER_ERROR = 'SERVER_ERROR',
 }

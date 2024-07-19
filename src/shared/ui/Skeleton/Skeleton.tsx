@@ -9,13 +9,8 @@ interface SkeletonProps {
     border?: string;
 }
 
-export const Skeleton = (props : SkeletonProps) => {
-    const {
-        className,
-        height,
-        width,
-        border,
-    } = props;
+export const Skeleton = (props: SkeletonProps) => {
+    const { className, height, width, border } = props;
 
     const styles: CSSProperties = {
         width,
@@ -28,6 +23,5 @@ export const Skeleton = (props : SkeletonProps) => {
             className={classNames(cls.Skeleton, {}, [className])}
             style={styles}
         />
-
     );
 };

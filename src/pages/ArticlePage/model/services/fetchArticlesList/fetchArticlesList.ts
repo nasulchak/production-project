@@ -3,7 +3,11 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Article, ArticleType } from '@/entities/Article';
 import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
 import {
-    getArticlesPageLimit, getArticlesPageNum, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort,
+    getArticlesPageLimit,
+    getArticlesPageNum,
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
     getArticlesPageType,
 } from '../../selectors/articlesPageSelectors';
 
@@ -11,46 +15,46 @@ interface FetchArticlesListProps {
     replace?: boolean;
 }
 
-export const fetchArticlesList = createAsyncThunk<Article[], FetchArticlesListProps, ThunkConfig<string>>(
-    'articles/fetchArticlesList',
-    async (props, thunkAPI) => {
-        const {
-            rejectWithValue,
-            extra,
-            getState,
-        } = thunkAPI;
+export const fetchArticlesList = createAsyncThunk<
+    Article[],
+    FetchArticlesListProps,
+    ThunkConfig<string>
+>('articles/fetchArticlesList', async (props, thunkAPI) => {
+    const { rejectWithValue, extra, getState } = thunkAPI;
 
-        const limit = getArticlesPageLimit(getState());
-        const sort = getArticlesPageSort(getState());
-        const order = getArticlesPageOrder(getState());
-        const search = getArticlesPageSearch(getState());
-        const page = getArticlesPageNum(getState());
-        const type = getArticlesPageType(getState());
+    const limit = getArticlesPageLimit(getState());
+    const sort = getArticlesPageSort(getState());
+    const order = getArticlesPageOrder(getState());
+    const search = getArticlesPageSearch(getState());
+    const page = getArticlesPageNum(getState());
+    const type = getArticlesPageType(getState());
 
-        try {
-            addQueryParams({
-                sort, order, search, type,
-            });
+    try {
+        addQueryParams({
+            sort,
+            order,
+            search,
+            type,
+        });
 
-            const response = await extra.api.get<Article[]>('/articles', {
-                params: {
-                    _expand: 'user',
-                    _limit: limit,
-                    _page: page,
-                    _sort: sort,
-                    _order: order,
-                    q: search,
-                    type: type === ArticleType.ALL ? undefined : type,
-                },
-            });
+        const response = await extra.api.get<Article[]>('/articles', {
+            params: {
+                _expand: 'user',
+                _limit: limit,
+                _page: page,
+                _sort: sort,
+                _order: order,
+                q: search,
+                type: type === ArticleType.ALL ? undefined : type,
+            },
+        });
 
-            if (!response.data) {
-                throw new Error();
-            }
-
-            return response.data;
-        } catch (e) {
-            return rejectWithValue('Введен неверный логин или пароль');
+        if (!response.data) {
+            throw new Error();
         }
-    },
-);
+
+        return response.data;
+    } catch (e) {
+        return rejectWithValue('Введен неверный логин или пароль');
+    }
+});

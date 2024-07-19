@@ -13,9 +13,7 @@
             {
                 "runtime": "automatic"
             }
-        ],
+        ]
     ],
-    "plugins": [
-        "i18next-extract"
-    ]
+    "plugins": ["i18next-extract"]
 }

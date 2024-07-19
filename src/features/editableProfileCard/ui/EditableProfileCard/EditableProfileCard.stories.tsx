@@ -14,8 +14,5 @@ export default meta;
 type Story = StoryObj<typeof EditableProfileCard>;
 
 export const Primary: Story = {
-    decorators: [
-        storeDecorator({
-        }),
-    ],
+    decorators: [storeDecorator({})],
 };

@@ -27,20 +27,12 @@ export const Primary: Story = {
             },
         },
     },
-    decorators: [
-        storeDecorator({
-
-        } as StateSchema),
-    ],
+    decorators: [storeDecorator({} as StateSchema)],
 };
 
 export const Loading: Story = {
     args: {
         isLoading: true,
     },
-    decorators: [
-        storeDecorator({
-
-        } as StateSchema),
-    ],
+    decorators: [storeDecorator({} as StateSchema)],
 };

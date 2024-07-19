@@ -31,25 +31,19 @@ export const Primary: Story = {
             avatar,
         },
     },
-    decorators: [
-        storeDecorator({} as StateSchema),
-    ],
+    decorators: [storeDecorator({} as StateSchema)],
 };
 
 export const Loading: Story = {
     args: {
         isLoading: true,
     },
-    decorators: [
-        storeDecorator({} as StateSchema),
-    ],
+    decorators: [storeDecorator({} as StateSchema)],
 };
 
 export const withError: Story = {
     args: {
         error: 'Error',
     },
-    decorators: [
-        storeDecorator({} as StateSchema),
-    ],
+    decorators: [storeDecorator({} as StateSchema)],
 };

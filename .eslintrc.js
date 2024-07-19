@@ -6,8 +6,10 @@ module.exports = {
     },
     extends: [
         'plugin:react/recommended',
-        'airbnb', 'plugin:i18next/recommended',
+        'airbnb',
+        'plugin:i18next/recommended',
         'plugin:storybook/recommended',
+        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -25,9 +27,6 @@ module.exports = {
         'feature-sliced-custom-plugin',
     ],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
         'react/jsx-filename-extension': [
             2,
             { extensions: ['.js', '.jsx', '.tsx'] },
@@ -47,9 +46,22 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute:
-                    ['data-testid', 'to', 'alt', 'target', 'justify', 'direction', 'align', 'gap', 'role', 'anchor', 'as', 'border'],
-            }],
+                ignoreAttribute: [
+                    'data-testid',
+                    'to',
+                    'alt',
+                    'target',
+                    'justify',
+                    'direction',
+                    'align',
+                    'gap',
+                    'role',
+                    'anchor',
+                    'as',
+                    'border',
+                ],
+            },
+        ],
         'max-len': ['error', { ignoreComments: true, code: 140 }],
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
@@ -59,10 +71,17 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'feature-sliced-custom-plugin/path-checker': ['error', { alias: '@' }],
-        'feature-sliced-custom-plugin/public-api-imports': ['error', {
-            alias: '@',
-            testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
-        }],
+        'feature-sliced-custom-plugin/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: [
+                    '**/*.test.ts',
+                    '**/*.test.ts',
+                    '**/StoreDecorator.tsx',
+                ],
+            },
+        ],
         'feature-sliced-custom-plugin/layer-imports': [
             'error',
             {

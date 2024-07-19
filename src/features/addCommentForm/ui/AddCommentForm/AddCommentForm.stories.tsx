@@ -16,9 +16,7 @@ export default meta;
 type Story = StoryObj<typeof AddCommentForm>;
 
 export const Primary: Story = {
-    args: {
-
-    },
+    args: {},
     decorators: [
         storeDecorator({
             addCommentForm: {

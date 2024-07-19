@@ -8,7 +8,6 @@ const meta: Meta<typeof Modal> = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-
 };
 
 export default meta;

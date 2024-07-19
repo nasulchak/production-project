@@ -24,7 +24,6 @@ const meta: Meta<typeof ArticleRecommendationsList> = {
     parameters: {
         layout: 'centered',
     },
-
 };
 
 export default meta;
@@ -39,20 +38,20 @@ export const Primary: Story = {
                 status: 200,
                 response: [
                     {
-                        ...article, id: '1',
+                        ...article,
+                        id: '1',
                     },
                     {
-                        ...article, id: '2',
+                        ...article,
+                        id: '2',
                     },
                     {
-                        ...article, id: '3',
+                        ...article,
+                        id: '3',
                     },
                 ],
             },
         ],
     },
-    decorators: [
-        storeDecorator({
-        }),
-    ],
+    decorators: [storeDecorator({})],
 };

@@ -9,7 +9,7 @@ interface NotificationItemProps {
     item: Notification;
 }
 
-export const NotificationItem = (props : NotificationItemProps) => {
+export const NotificationItem = (props: NotificationItemProps) => {
     const { className, item } = props;
 
     const content = (
@@ -23,7 +23,12 @@ export const NotificationItem = (props : NotificationItemProps) => {
 
     if (item.href) {
         return (
-            <a className={cls.link} target="_blank" href={item.href} rel="noreferrer">
+            <a
+                className={cls.link}
+                target="_blank"
+                href={item.href}
+                rel="noreferrer"
+            >
                 {content}
             </a>
         );
